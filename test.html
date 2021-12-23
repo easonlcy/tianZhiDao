@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+    button {
+       
+        width: 70px;
+        height: 30px;
+    }
+</style>
+<body>
+    <div id="app">
+        <button class="get">获取笑话</button>
+        <button class="post">其他</button>
+    </div>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var get = document.querySelector('.get');
+    var post = document.querySelector('.post');
+    get.addEventListener('click',function() {
+        axios.get("http://wthrcdn.etouch.cn/weather_mini?city=${this.city}")
+        .then(function(response){
+            console.log(response);
+        },function(err){
+            console.log(err);
+        })
+
+    })
+    post.addEventListener('click',function() {
+        axios.post("https://autumnfish.cn/api/user/reg",
+        {username:"llllllls"})
+        .then(function(response){
+            console.log(response);
+        })
+    })
+</script>
+</html>
